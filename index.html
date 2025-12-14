@@ -2,21 +2,33 @@
 <html>
 <head>
     <title>Redirecting...</title>
+    <!-- 1. CACHE CONTROL: Prevents old page from being stored -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <!-- THE LINE BELOW IS THE ONE YOU EDIT -->
+    <!-- 2. PRIMARY REDIRECT: Works for most browsers -->
     <meta http-equiv="refresh" content="0; url=https://docs.google.com/forms/d/e/1FAIpQLSctnzvHaGss9hViv7prQGmvbyYH_Wn3SSCyHkvJbqze3F86Og/viewform?usp=dialog" />
+    <!-- 3. IOS/SAFARI FIX: Forces page to be reloaded from server, not cache -->
+    <script>
+        // This script ensures compatibility with iOS Safari and all mobile OS
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                // If page is loaded from cache, force a full reload from the server
+                window.location.reload();
+            }
+        };
+        // Primary, immediate JavaScript redirect (works everywhere)
+        window.location.replace("https://your-actual-google-form-link.com");
+    </script>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
         a { color: #0366d6; }
     </style>
 </head>
 <body>
-    <p>You are being redirected. If nothing happens, please <a href="#" id="manualLink">click here</a>.</p>
-    <script>
-        
-        document.getElementById('manualLink').href = window.location.href.split('#')[0].replace('index.html', '');
-    </script>
+    <!-- 4. FALLBACK LINK: If all else fails, user can click manually -->
+    <p>If you are not redirected automatically, please <a href="https://your-actual-google-form-link.com">click here</a>.</p>
 </body>
 </html>
+
+
