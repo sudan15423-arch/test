@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <!-- THE LINE BELOW IS THE ONE YOU EDIT -->
+    <meta http-equiv="refresh" content="0; url=https://docs.google.com/forms/d/e/1FAIpQLSctnzvHaGss9hViv7prQGmvbyYH_Wn3SSCyHkvJbqze3F86Og/viewform?usp=dialog" />
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        a { color: #0366d6; }
+    </style>
+</head>
+<body>
+    <p>You are being redirected. If nothing happens, please <a href="#" id="manualLink">click here</a>.</p>
+    <script>
+        // This small script makes the "click here" link work
+        document.getElementById('manualLink').href = window.location.href.split('#')[0].replace('index.html', '');
+    </script>
+</body>
+</html>
